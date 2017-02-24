@@ -91,7 +91,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 This section depends on VS Code and its extension `C/C++`. 
 
-1. The `C/C++` extension need one communication tool for remote debugging. Here we choose ssh. To avoid password input, we generate ssh key and upload it to Pi. 
+1. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose ssh. To avoid password input, we generate ssh key and upload it to Pi. 
 
    * Run `ssh-keygen` command in Terminal to generate ssh key.
    
@@ -126,9 +126,34 @@ This section depends on VS Code and its extension `C/C++`.
 4. Config `launch.json`.
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
+ 
    * `cwd` is the working folder on device and should be `/home/pi`.
-   * `pipeTransport` is for data communication between device and host machine. Fill in the user name and device IP address. 
-   * `sourceFileMap` is for mapping source code between device and host machine. Fill in the source code folder path of host machine.
+ 
+   * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
+
+   ```
+    "pipeTransport": {
+        "pipeCwd": "/usr/bin",
+        "pipeProgram": "/usr/bin/ssh",
+        "pipeArgs": [
+            "user@10.10.10.10"
+        ],
+        "debuggerPath": "/usr/bin/gdb"
+    },
+   ``` 
+
+   * `sourceFileMap` is for mapping the path of where the code exists on the remote shell to where it is locally. Please add this property and update these two paths accordingly.
+
+   ```
+    "sourceFileMap": {
+        // "remote": "local"
+        "/home/pi": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
+    },
+   ```
+
+   * `osx` specifies the deubgger, which should be `gdb` instead of `lldb`. Simply repalce its value with `linux`'s.
+
+   
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
