@@ -77,7 +77,14 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
-   ![docker-deploy.png](images/docker-deploy.png)
+2. Use SSH to log in the device and run the deployed app.
+
+```bash
+ssh pi@xx.xx.xx.xx
+sudo ./build/app
+```
+
+![ssh.png](images/ssh.png)
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
