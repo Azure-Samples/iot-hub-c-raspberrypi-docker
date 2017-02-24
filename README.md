@@ -89,9 +89,23 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 ## Debug the app
 
-This step depends on VS Code and its extension `C/C++`.
+This section depends on VS Code and its extension `C/C++`. 
 
-1. Run below command to open `src` folder with VS Code. Then, open the `launch.json` file under `.vscode` folder.
+1. The `C/C++` extension need one communication tool for remote debugging. Here we choose ssh. To avoid password input, we generate ssh key and upload it to Pi. 
+
+   * Run `ssh-keygen` command in Terminal to generate ssh key.
+   
+   ![ssh-keygen.png](images/ssh-keygen.png)
+
+   * Run `brew install ssh-copy-id` to get the ssh key upload tool.
+   
+   ![ssh-copy-id.png](images/ssh-copy-id.png)
+
+   * Run `ssh-copy-id pi@<device IP address>` to upload the ssh key to device.
+
+   ![run-ssh-copy-id.png](images/run-ssh-copy-id.png)
+
+2. Run below command to open `src` folder with VS Code.
 
    ```bash
    code .
@@ -99,7 +113,13 @@ This step depends on VS Code and its extension `C/C++`.
 
 ![src-folder.png](images/src-folder.png)
 
-2. 
+3. Config debug settings.
+
+   * Open `launch.json` in `.vscode` folder.
+   * `program` is the full path of the deployed app on device. The built binary is at `./build/lesson1` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/lesson1`.
+   * `cwd` is the working folder on device and should be `/home/pi`.
+   * `pipeTransport` is for data communication between device and host machine. Fill in the user name and device IP address. 
+   * `sourceFileMap` is for mapping source code between device and host machine. Fill in the source code folder path of host machine.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
