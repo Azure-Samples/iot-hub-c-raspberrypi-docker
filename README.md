@@ -113,9 +113,18 @@ This section depends on VS Code and its extension `C/C++`.
 
 ![src-folder.png](images/src-folder.png)
 
-3. Config debug settings.
+3. Generate `lanuch.json`.
 
-   * Open `launch.json` in `.vscode` folder.
+   * Press `F5` key. VS Code will prompt for environment selection.
+
+   ![press-f5.png](images/press-f5.png)
+
+   * Choose `C++(GDB/LLDB)`. `launch.json` is generated automatically.
+
+   ![new-launch-json.png](images/new-launch-json.png)
+
+4. Config `launch.json`.
+
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
    * `cwd` is the working folder on device and should be `/home/pi`.
    * `pipeTransport` is for data communication between device and host machine. Fill in the user name and device IP address. 
