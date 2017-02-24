@@ -131,25 +131,25 @@ This section depends on VS Code and its extension `C/C++`.
  
    * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
 
-   ```
-    "pipeTransport": {
-        "pipeCwd": "/usr/bin",
-        "pipeProgram": "/usr/bin/ssh",
-        "pipeArgs": [
-            "user@10.10.10.10"
-        ],
-        "debuggerPath": "/usr/bin/gdb"
-    },
-   ``` 
+      ```
+      "pipeTransport": {
+            "pipeCwd": "/usr/bin",
+            "pipeProgram": "/usr/bin/ssh",
+            "pipeArgs": [
+                  "user@10.10.10.10"
+            ],
+            "debuggerPath": "/usr/bin/gdb"
+      },
+      ``` 
 
    * `sourceFileMap` is for mapping the path of where the code exists on the remote shell to where it is locally. Please add this property and update these two paths accordingly.
 
-   ```
-    "sourceFileMap": {
-        // "remote": "local"
-        "/home/pi": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
-    },
-   ```
+      ```
+      "sourceFileMap": {
+            // "remote": "local"
+            "/home/pi": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
+      },
+      ```
 
    * `osx` specifies the deubgger, which should be `gdb` instead of `lldb`. Simply repalce its value with `linux`'s.
 
