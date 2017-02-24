@@ -40,6 +40,31 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 ## Build C code using Docker
 
+1. Run below command to clone the repo.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/docker-based-raspberrypi-c-tutorial.git
+   cd docker-based-raspberrypi-c-tutorial/src
+   ```
+
+2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up with our existing code. Let's create one folder, say `build`, under the `src` folder.
+
+   ```bash
+   mkdir build
+   ```
+3. Run below command to do the build. 
+
+   `--rm` are docker running options. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
+   `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with your own `src` path.
+   `-v` option maps your `src` folder to `/source` folder of Ubuntu running inside docker container.
+   `zhijzhao/raspberrypi` is docker image name. Reference `` folder if you're interested in how it works.
+   `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `buiild --builddir build` parameters.
+
+   ```bash
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
+   ```
+
+
 ## Deploy and debug the built app
 
 ## Contributing
