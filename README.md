@@ -64,6 +64,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
+   ![docker-build.png](images/docker-build.png)
 
 ## Deploy and debug the built app
 
