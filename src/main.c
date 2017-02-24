@@ -15,7 +15,7 @@ const int RED_LED_PIN = 7;
 int main(int argc, char *argv[])
 {
     // Below line of code is for debugging only.
-    // GPIO access requires sudo privilege. Setting enviroment variable WIRINGPI_GPIOMEM
+    // GPIO access requires sudo privilege. Setting environment variable WIRINGPI_GPIOMEM
     // to 1 can bypass this sudo requirement.
     setenv("WIRINGPI_GPIOMEM", "1", 1);
 

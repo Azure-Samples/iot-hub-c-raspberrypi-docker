@@ -1,7 +1,7 @@
 
 # Docker based Raspberry Pi C tutorial
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to build C source code on host machine in a cross-compliation way. Last but most important, you learn how to deploy built binaries to Pi and how to do remote debugging. 
+In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to build C source code on host machine in a cross-compilation way. Last but most important, you learn how to deploy built binaries to Pi and how to do remote debugging. 
 
 ## Configure your device
 
@@ -59,10 +59,10 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
-   * `--rm` is a docker running option. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
+   * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
-   * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside docker container.
-   * `zhijzhao/raspberrypi` is docker image name. Reference `dockerfiles` folder if you're interested in how it works.
+   * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside Docker container.
+   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
 
    ![docker-build.png](images/docker-build.png)
@@ -91,17 +91,17 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 This section depends on VS Code and its extension `C/C++`. 
 
-1. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose ssh. To avoid password input, we generate ssh key and upload it to Pi. 
+1. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
-   * Run `ssh-keygen` command in Terminal to generate ssh key.
+   * Run `ssh-keygen` command in Terminal to generate SSH key.
    
    ![ssh-keygen.png](images/ssh-keygen.png)
 
-   * Run `brew install ssh-copy-id` to get the ssh key upload tool.
+   * Run `brew install ssh-copy-id` to get the SSH key upload tool.
    
    ![ssh-copy-id.png](images/ssh-copy-id.png)
 
-   * Run `ssh-copy-id pi@<device IP address>` to upload the ssh key to device.
+   * Run `ssh-copy-id pi@<device IP address>` to upload the SSH key to device.
 
    ![run-ssh-copy-id.png](images/run-ssh-copy-id.png)
 
@@ -151,7 +151,7 @@ This section depends on VS Code and its extension `C/C++`.
       },
       ```
 
-   * `osx` specifies the deubgger, which should be `gdb` instead of `lldb`. Simply repalce its value with `linux`'s.
+   * `osx` specifies the debugger, which should be `gdb` instead of `lldb`. Simply replace its value with `Linux`'s.
 
    ![updated-launch-json.png](images/updated-launch-json.png)
 
