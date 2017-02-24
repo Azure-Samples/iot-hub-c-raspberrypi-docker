@@ -91,11 +91,13 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 This step depends on VS Code and its extension `C/C++`.
 
-1. Run below command to open `src` folder with VS Code. 
+1. Run below command to open `src` folder with VS Code. Then, open the `launch.json` file under `.vscode` folder.
 
    ```bash
    code .
    ```
+
+![src-folder.png](images/src-folder.png)
 
 2. 
 
