@@ -153,7 +153,7 @@ This section depends on VS Code and its extension `C/C++`.
 
    * `osx` specifies the deubgger, which should be `gdb` instead of `lldb`. Simply repalce its value with `linux`'s.
 
-   
+   ![updated-launch-json.png](images/updated-launch-json.png)
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
