@@ -7,11 +7,18 @@
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 
+extern int setenv (const char *, const char *, int);
+
 const int MAX_BLINK_TIMES = 20;
 const int RED_LED_PIN = 7;
 
 int main(int argc, char *argv[])
 {
+    // Below line of code is for debugging only.
+    // GPIO access requires sudo privilege. Setting enviroment variable WIRINGPI_GPIOMEM
+    // to 1 can bypass this sudo requirement.
+    setenv("WIRINGPI_GPIOMEM", "1", 1);
+
     int blinkNumber = 0;
 
     wiringPiSetup();
