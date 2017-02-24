@@ -47,22 +47,23 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    cd docker-based-raspberrypi-c-tutorial/src
    ```
 
-2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up with our existing code. Let's create one folder, say `build`, under the `src` folder.
+2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up with our existing code. Let's create the folder, say `build`, under `src` folder.
 
    ```bash
    mkdir build
    ```
+
 3. Run below command to do the build. 
 
    ```bash
    docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
-   * `--rm` are docker running options. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with your own `src` path.
-   * `-v` option maps your `src` folder to `/source` folder of Ubuntu running inside docker container.
-   * `zhijzhao/raspberrypi` is docker image name. Reference `` folder if you're interested in how it works.
-   * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `buiild --builddir build` parameters.
+   * `--rm` is a docker running option. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
+   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
+   * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside docker container.
+   * `zhijzhao/raspberrypi` is docker image name. Reference `dockerfiles` folder if you're interested in how it works.
+   * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
 
    ![docker-build.png](images/docker-build.png)
 
@@ -79,10 +80,10 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 2. Use SSH to log in the device and run the deployed app.
 
-```bash
-ssh pi@xx.xx.xx.xx
-sudo ./build/app
-```
+   ```bash
+   ssh pi@xx.xx.xx.xx
+   sudo ./build/app
+   ```
 
 ![ssh.png](images/ssh.png)
 
