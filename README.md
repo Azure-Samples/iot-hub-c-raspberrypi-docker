@@ -54,19 +54,30 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    ```
 3. Run below command to do the build. 
 
-   `--rm` are docker running options. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with your own `src` path.
-   `-v` option maps your `src` folder to `/source` folder of Ubuntu running inside docker container.
-   `zhijzhao/raspberrypi` is docker image name. Reference `` folder if you're interested in how it works.
-   `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `buiild --builddir build` parameters.
-
    ```bash
    docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
+   * `--rm` are docker running options. For details, please check [docker reference](https://docs.docker.com/engine/reference/commandline/run/).
+   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with your own `src` path.
+   * `-v` option maps your `src` folder to `/source` folder of Ubuntu running inside docker container.
+   * `zhijzhao/raspberrypi` is docker image name. Reference `` folder if you're interested in how it works.
+   * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `buiild --builddir build` parameters.
+
    ![docker-build.png](images/docker-build.png)
 
-## Deploy and debug the built app
+## Deploy and run the built app
+
+1. Run below command to deploy the contents of `src` folder to home folder of your Pi.
+
+   ```bash
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   ```
+   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
+   * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
+   * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
+
+   ![docker-deploy.png](images/docker-deploy.png)
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
