@@ -111,7 +111,7 @@ This section depends on VS Code and its extension `C/C++`.
    code .
    ```
 
-![src-folder.png](images/src-folder.png)
+   ![src-folder.png](images/src-folder.png)
 
 3. Generate `lanuch.json`.
 
