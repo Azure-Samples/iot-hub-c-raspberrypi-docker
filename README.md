@@ -87,5 +87,17 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 ![ssh.png](images/ssh.png)
 
+## Debug the app
+
+This step depends on VS Code and its extension `C/C++`.
+
+1. Run below command to open `src` folder with VS Code. 
+
+   ```bash
+   code .
+   ```
+
+2. 
+
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
