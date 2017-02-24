@@ -155,5 +155,13 @@ This section depends on VS Code and its extension `C/C++`.
 
    ![updated-launch-json.png](images/updated-launch-json.png)
 
+4. Debug `main.c`.
+
+   * Open `main.c` and insert breakpoints by pressing `F9` key.
+   * Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
+   * Press `F10` to debug step by step. Enjoy debugging!
+
+   ![main.png](images/main.png)
+
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
