@@ -60,7 +60,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
 
-   ![docker-build.png](images/docker-build.png)
+![docker-build.png](images/docker-build.png)
 
 ## Deploy and run the built app
 
@@ -76,7 +76,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
 2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and deploy action name.
 
-   ![docker-deploy.png](images/docker-deploy.png)
+![docker-deploy.png](images/docker-deploy.png)
 
 3. Use SSH to log in the device and run the deployed app.
 
@@ -85,7 +85,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    sudo ./build/app
    ```
 
-   ![ssh.png](images/ssh.png)
+![ssh.png](images/ssh.png)
 
 ## Debug the app
 
