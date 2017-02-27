@@ -58,12 +58,9 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
 
-   ![docker-build.png](images/docker-build.png)
-
 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
 
-   ** screencut tdb **
-   
+   ![docker-build.png](images/docker-build.png)
 
 ## Deploy and run the built app
 
