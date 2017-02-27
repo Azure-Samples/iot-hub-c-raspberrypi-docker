@@ -48,7 +48,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
@@ -70,7 +70,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
