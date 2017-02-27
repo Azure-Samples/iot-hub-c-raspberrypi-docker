@@ -1,45 +1,51 @@
 #!/bin/bash
-save_builddir=0
+save_cmakedir=0
+save_outputdir=0
 
 for arg in "$@"
 do   
-    if [ $save_builddir == 1 ]
+    if [ $save_outputdir == 1 ]
     then
-        builddir="/source/$arg"
-        save_builddir=0
+        outputdir="/repo/$arg"
+        save_outputdir=0
+    elif [ $save_cmakedir == 1 ]
+    then
+        cmakedir="/repo/$arg"
+        save_cmakedir=0
     else
         case "$arg" in
-            "--builddir" ) save_builddir=1;;
+            "--outputdir" ) save_outputdir=1;;
+            "--cmakedir" ) save_cmakedir=1;;
         esac
     fi
 done
 
-if [ -z ${builddir+x} ]; then 
-    builddir=/source
+if [ -z ${outputdir+x} ]; then 
+    outputdir=/repo
 fi
 
-if [ ! -d "$builddir" ]; then
-    echo no build dir $builddir
+if [ ! -d "$outputdir" ]; then
+    echo no build dir $outputdir
     exit 1
 fi
 
-if [ ! -d "/source" ]; then
-    echo no source dir /source
+if [ -z ${cmakedir+x} ]; then 
+    cmakedir=/repo/src
+fi
+
+if [ ! -d "$cmakedir" ]; then
+    echo no cmake dir $cmakedir
     exit 1
 fi
 
-if [ ! -f "/source/CMakeLists.txt" ]; then
-    echo no /source/CMakeLists.txt
+if [ ! -f "$cmakedir/CMakeLists.txt" ]; then
+    echo no $cmakedir/CMakeLists.txt
     exit 1
 fi
 
-if [ -f "/source/build.log" ]; then
-    rm "/source/build.log"
-fi
+pushd $outputdir > /dev/null
 
-pushd $builddir > /dev/null
-
-cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake /source && make
+cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake $cmakedir && make
 
 if [ $? -eq 0 ]; then
     echo Build succeeded!
@@ -48,3 +54,7 @@ else
 fi
 
 popd > /dev/null
+
+
+device=$(echo $DEVICETYPE)
+source ./bi/bi.sh --device $device --event dockerbuild

@@ -39,6 +39,14 @@ do
     fi
 done
 
+if [ -z ${srcdockerpath+x} ]; then 
+    srcdockerpath=/repo/*
+fi
+
+if [ -z ${destdir+x} ]; then 
+    destdir=/home/pi
+fi
+
 sshpass -p $password scp -vo UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r $srcdockerpath $username@$deviceip:$destdir
 
 if [ $? -eq 0 ]; then
@@ -46,3 +54,7 @@ if [ $? -eq 0 ]; then
 else
     exit $?
 fi
+
+
+device=$(echo $DEVICETYPE)
+source ./bi/bi.sh --device $device --event dockerdeploy

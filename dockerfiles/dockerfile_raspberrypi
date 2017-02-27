@@ -33,7 +33,6 @@ ENV AZURE_IOT_SDK /azure-iot-sdk-c
 
 
 # copy build script
-COPY index.sh /index.sh
 COPY deploy.sh /deploy.sh
 COPY build.sh /build.sh
 
