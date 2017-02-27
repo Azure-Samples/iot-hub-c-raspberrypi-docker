@@ -4,11 +4,11 @@ task=""
 if [ "$1" == "build" ]
 then
   source /build.sh
-  task=build
+  task=dockerbuild
 elif [ "$1" == "deploy" ]
 then
   source /deploy.sh
-  task=deploy
+  task=dockerdeploy
 else
   echo unknown command
 fi

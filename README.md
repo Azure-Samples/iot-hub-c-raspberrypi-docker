@@ -67,7 +67,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
    ![docker-build.png](images/docker-build.png)
 
-4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not.
+ 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not to. Microsoft will not collect any credential info, but only device type and build action name.
 
    ** screencut tdb **
    
@@ -83,7 +83,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
-2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not. Microsoft will not collect any credential info, but only device type and deploy action name.
+2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not to. Microsoft will not collect any credential info, but only device type and deploy action name.
 
    ** screencut tdb **
 
