@@ -8,7 +8,7 @@ do
     then
         outputdir="/repo/$arg"
         save_outputdir=0
-    if [ $save_cmakedir == 1 ]
+    elif [ $save_cmakedir == 1 ]
     then
         cmakedir="/repo/$arg"
         save_cmakedir=0
