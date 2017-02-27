@@ -48,15 +48,15 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
+   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial` is the full path of repo folder. Replace it with the repo path on your host machine.
    * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
-   * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
+   * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
 
@@ -68,11 +68,10 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/repo zhijzhao/raspberrypi /deploy.sh --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
 
-   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
-   * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
+   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your repo path, same as build step.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
 2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and deploy action name.
@@ -113,7 +112,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 3. Run below command to open `src` folder with VS Code.
 
    ```bash
-   code .
+   code src
    ```
 
    ![src-folder.png](images/src-folder.png)
@@ -132,8 +131,8 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
  
-   * `cwd` is the working folder on device and should be `/home/pi`.
- 
+   * `cwd` is the working folder on device and should be `/home/pi/src`.
+
    * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
 
       ```
@@ -152,7 +151,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
+            "/home/pi/src": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
       },
       ```
 
