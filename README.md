@@ -54,6 +54,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
    * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside Docker container.
+   * `-it` option allows you to interact with the running docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
 
