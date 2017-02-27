@@ -51,4 +51,4 @@ popd > /dev/null
 
 
 device=$(echo $DEVICETYPE)
-source ./bi/bi.sh --device $device --event dockerdeploy
+source ./bi/bi.sh --device $device --event dockerbuild

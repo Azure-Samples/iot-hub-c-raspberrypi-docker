@@ -49,4 +49,4 @@ fi
 
 
 device=$(echo $DEVICETYPE)
-source ./bi/bi.sh --device $device --event dockerbuild
+source ./bi/bi.sh --device $device --event dockerdeploy
