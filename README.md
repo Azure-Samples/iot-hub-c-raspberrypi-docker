@@ -67,7 +67,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
    ![docker-build.png](images/docker-build.png)
 
- 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not to. Microsoft will not collect any credential info, but only device type and build action name.
+4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' to not to. Microsoft will not collect any credential info, but only device type and build action name.
 
    ** screencut tdb **
    
