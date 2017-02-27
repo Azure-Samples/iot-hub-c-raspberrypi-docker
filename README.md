@@ -29,15 +29,6 @@ To install Git, use the [Homebrew](http://brew.sh) package management utility by
 ### Install Docker
 Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get Docker for Mac` link. Click it for download and installation.
 
-### Install Visual Studio Code
-
-> [!NOTE]
-> You can skip this step if you don't want to do remote debugging.
-
-[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor.
-
-Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
-
 ## Build C code using Docker
 
 1. Run below command to clone the repo.
@@ -56,29 +47,41 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 3. Run below command to do the build. 
 
    ```bash
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh build --builddir build
+   docker pull zhijzhao/raspberrypi
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh build --builddir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
    * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside Docker container.
+   * `-it` option allows you to interact with the running docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
 
    ![docker-build.png](images/docker-build.png)
+
+4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
+
+   ** screencut tdb **
+   
 
 ## Deploy and run the built app
 
 1. Run below command to deploy the contents of `src` folder to home folder of your Pi.
 
    ```bash
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   docker pull zhijzhao/raspberrypi
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
-2. Use SSH to log in the device and run the deployed app.
+2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and deploy action name.
+
+   ** screencut tdb **
+
+3. Use SSH to log in the device and run the deployed app.
 
    ```bash
    ssh pi@xx.xx.xx.xx
@@ -89,9 +92,13 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
 
 ## Debug the app
 
-This section depends on VS Code and its extension `C/C++`. 
+1. Install Visual Studio Code
 
-1. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
+   * [Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor.
+
+   * Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
+
+2. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
    * Run `ssh-keygen` command in Terminal to generate SSH key.
    
@@ -105,7 +112,7 @@ This section depends on VS Code and its extension `C/C++`.
 
    ![run-ssh-copy-id.png](images/run-ssh-copy-id.png)
 
-2. Run below command to open `src` folder with VS Code.
+3. Run below command to open `src` folder with VS Code.
 
    ```bash
    code .
@@ -113,7 +120,7 @@ This section depends on VS Code and its extension `C/C++`.
 
    ![src-folder.png](images/src-folder.png)
 
-3. Generate `lanuch.json`.
+4. Generate `lanuch.json`.
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
@@ -123,7 +130,7 @@ This section depends on VS Code and its extension `C/C++`.
 
    ![new-launch-json.png](images/new-launch-json.png)
 
-4. Config `launch.json`.
+5. Config `launch.json`.
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
  
@@ -155,7 +162,7 @@ This section depends on VS Code and its extension `C/C++`.
 
    ![updated-launch-json.png](images/updated-launch-json.png)
 
-4. Debug `main.c`.
+6. Debug `main.c`.
 
    * Open `main.c` and insert breakpoints by pressing `F9` key.
    * Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
