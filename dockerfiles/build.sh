@@ -1,25 +1,25 @@
 #!/bin/bash
-save_builddir=0
+save_outputdir=0
 
 for arg in "$@"
 do   
-    if [ $save_builddir == 1 ]
+    if [ $save_outputdir == 1 ]
     then
-        builddir="/source/$arg"
-        save_builddir=0
+        outputdir="/source/$arg"
+        save_outputdir=0
     else
         case "$arg" in
-            "--builddir" ) save_builddir=1;;
+            "--outputdir" ) save_outputdir=1;;
         esac
     fi
 done
 
-if [ -z ${builddir+x} ]; then 
-    builddir=/source
+if [ -z ${outputdir+x} ]; then 
+    outputdir=/source
 fi
 
-if [ ! -d "$builddir" ]; then
-    echo no build dir $builddir
+if [ ! -d "$outputdir" ]; then
+    echo no build dir $outputdir
     exit 1
 fi
 
@@ -37,7 +37,7 @@ if [ -f "/source/build.log" ]; then
     rm "/source/build.log"
 fi
 
-pushd $builddir > /dev/null
+pushd $outputdir > /dev/null
 
 cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake /source && make
 
@@ -48,3 +48,7 @@ else
 fi
 
 popd > /dev/null
+
+
+device=$(echo $DEVICETYPE)
+source ./bi/bi.sh --device $device --event dockerdeploy

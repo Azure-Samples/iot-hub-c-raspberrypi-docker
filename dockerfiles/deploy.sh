@@ -46,3 +46,7 @@ if [ $? -eq 0 ]; then
 else
     exit $?
 fi
+
+
+device=$(echo $DEVICETYPE)
+source ./bi/bi.sh --device $device --event dockerbuild

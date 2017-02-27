@@ -35,10 +35,10 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    git clone https://github.com/Azure-Samples/docker-based-raspberrypi-c-tutorial.git
-   cd docker-based-raspberrypi-c-tutorial/src
+   cd docker-based-raspberrypi-c-tutorial
    ```
 
-2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`, under `src` folder.
+2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`.
 
    ```bash
    mkdir build
@@ -48,7 +48,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh build --builddir build
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/source zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
@@ -68,8 +68,9 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source -it zhijzhao/raspberrypi /index.sh deploy --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /deploy.sh --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
+   
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
