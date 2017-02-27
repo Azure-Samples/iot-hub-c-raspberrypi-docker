@@ -1,0 +1,14 @@
+{
+    "name": "bihelper",
+    "displayName": "bi helper",
+    "description": "send bi data to application insight",
+    "version": "0.0.1",
+    "main": "index.js",    
+    "scripts": {        
+        "test": "node ./node_modules/test"
+    },
+    "devDependencies": {
+        "az-iot-bi": "^0.1.16",
+        "readline-sync": "^1.4.4"
+    }
+}
