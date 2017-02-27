@@ -18,4 +18,4 @@ do
    fi
 done
 
-nodejs ./index.js $devicetype $eventname
+nodejs ./bi/index.js $devicetype $eventname
