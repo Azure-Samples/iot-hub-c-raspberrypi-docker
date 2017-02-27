@@ -34,7 +34,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 > [!NOTE]
 > You can skip this step if you don't want to do remote debugging.
 
-[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS.
+[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor.
 
 Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
 
@@ -47,7 +47,7 @@ Open VS Code and install extension named `C/C++`. If you have already installed 
    cd docker-based-raspberrypi-c-tutorial/src
    ```
 
-2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up with our existing code. Let's create the folder, say `build`, under `src` folder.
+2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`, under `src` folder.
 
    ```bash
    mkdir build
