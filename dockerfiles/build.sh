@@ -30,7 +30,7 @@ if [ ! -d "$outputdir" ]; then
     exit 1
 fi
 
-if [ -z ${outputdir+x} ]; then 
+if [ -z ${cmakedir+x} ]; then 
     cmakedir=/repo/src
 fi
 
