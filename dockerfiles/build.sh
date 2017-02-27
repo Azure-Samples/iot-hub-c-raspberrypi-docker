@@ -15,7 +15,6 @@ do
     else
         case "$arg" in
             "--outputdir" ) save_outputdir=1;;
-        case "$arg" in
             "--cmakedir" ) save_cmakedir=1;;
         esac
     fi
