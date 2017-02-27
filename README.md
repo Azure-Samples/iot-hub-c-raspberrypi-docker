@@ -48,12 +48,12 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/source zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` is the full path of `src` folder. Replace it with the `src` path on your host machine.
-   * `-v` option maps your `src` folder to `/source` folder of the Ubuntu OS running inside Docker container.
+   * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/index.sh` is the shell script name inside the Ubuntu container that we want to run with `build --builddir build` parameters.
@@ -68,9 +68,9 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/source zhijzhao/raspberrypi /deploy.sh --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
+   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src:/repo zhijzhao/raspberrypi /deploy.sh --srcdockerpath /source/* --destdir /home/pi --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
-   
+
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your `src` path, same as build step.
    * `--srcdockerpath /source/*` specifies the source path that we want to deploy from.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.

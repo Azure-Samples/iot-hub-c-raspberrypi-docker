@@ -1,21 +1,28 @@
 #!/bin/bash
+save_cmakedir=0
 save_outputdir=0
 
 for arg in "$@"
 do   
     if [ $save_outputdir == 1 ]
     then
-        outputdir="/source/$arg"
+        outputdir="/repo/$arg"
         save_outputdir=0
+    if [ $save_cmakedir == 1 ]
+    then
+        cmakedir="/repo/$arg"
+        save_cmakedir=0
     else
         case "$arg" in
             "--outputdir" ) save_outputdir=1;;
+        case "$arg" in
+            "--cmakedir" ) save_cmakedir=1;;
         esac
     fi
 done
 
 if [ -z ${outputdir+x} ]; then 
-    outputdir=/source
+    outputdir=/repo
 fi
 
 if [ ! -d "$outputdir" ]; then
@@ -23,23 +30,23 @@ if [ ! -d "$outputdir" ]; then
     exit 1
 fi
 
-if [ ! -d "/source" ]; then
-    echo no source dir /source
+if [ -z ${outputdir+x} ]; then 
+    cmakedir=/repo/src
+fi
+
+if [ ! -d "$cmakedir" ]; then
+    echo no cmake dir $cmakedir
     exit 1
 fi
 
-if [ ! -f "/source/CMakeLists.txt" ]; then
-    echo no /source/CMakeLists.txt
+if [ ! -f "$cmakedir/CMakeLists.txt" ]; then
+    echo no $cmakedir/CMakeLists.txt
     exit 1
-fi
-
-if [ -f "/source/build.log" ]; then
-    rm "/source/build.log"
 fi
 
 pushd $outputdir > /dev/null
 
-cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake /source && make
+cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake $cmakedir && make
 
 if [ $? -eq 0 ]; then
     echo Build succeeded!
