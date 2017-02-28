@@ -9,6 +9,10 @@ Go to [Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot
 
 ### Install Git
 
+Click below link to download and install Git for Windows.
+
+* [Get Git for Windows](https://git-scm.com/download/win/)
+
 ### Install Docker
 Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get Docker for Windows` link. Click it for download and installation.
 
@@ -36,17 +40,17 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` part needs to be replace with your own value.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v <d:\some-path\docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` is the full path of repo folder. Replace it with the repo path on your host machine.
+   * `<d:\some-path\docker-based-raspberrypi-c-tutorial>` is the full path of repo folder. Replace it with the repo path on your host machine.
    * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
-![docker-build.png](media/docker-build.png)
+![docker-build.png](media/win/docker-build.png)
 
 ## Deploy and run the built app
 
