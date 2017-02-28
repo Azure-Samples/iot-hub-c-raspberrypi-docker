@@ -54,8 +54,6 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
-4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
-
 ![docker-build.png](media/docker-build.png)
 
 ## Deploy and run the built app
@@ -69,8 +67,6 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your repo path, same as build step.
    * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
-
-2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and deploy action name.
 
 ![docker-deploy.png](media/docker-deploy.png)
 
