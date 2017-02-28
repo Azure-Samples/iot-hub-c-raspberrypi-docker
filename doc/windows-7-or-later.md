@@ -137,12 +137,12 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
       ```
       "pipeTransport": {
-            "pipeCwd": "/usr/bin",
-            "pipeProgram": "/usr/bin/ssh",
-            "pipeArgs": [
-                  "<user name>@<device ip address>"
-            ],
-            "debuggerPath": "/usr/bin/gdb"
+        "pipeCwd": "C:\\Program Files\\Git\\usr\\bin",
+        "pipeProgram": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
+        "pipeArgs": [
+          <user name>@<device ip address>
+        ],
+        "debuggerPath": "/usr/bin/gdb"
       },
       ``` 
 
@@ -151,11 +151,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>"
+            "/home/pi/src": "<d:\\some-path\\docker-based-raspberrypi-c-tutorial\\src>"
       },
       ```
-
-   * `osx` specifies the debugger, which should be `gdb` instead of `lldb`. Simply replace its value with `Linux`'s.
 
    ![updated-launch-json.png](media/win/updated-launch-json.PNG)
 
