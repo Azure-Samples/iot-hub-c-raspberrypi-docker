@@ -1,6 +1,3 @@
-
-(working in progress...)
-
 ## Configure your device
 
 Go to [Configure your device](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device) page and setup your Pi for first-time use.
