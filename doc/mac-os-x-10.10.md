@@ -97,24 +97,26 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
 
-      1. Type `code` command in your Terminal.
-      2. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
+      a. Type `code` command in your Terminal.
+      
+      b. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
       ![ext.png](media/mac/ext.png)
-      3. Click `Install` to install the exntension and reload VS Code as prompted. 
+      
+      c. Click `Install` to install the exntension and reload VS Code as prompted. 
       ![install.png](media/mac/install.png)
 
 
 2. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
-   * Run `ssh-keygen` command in Terminal to generate SSH key.
+   a. Run `ssh-keygen` command in Terminal to generate SSH key.
    
    ![ssh-keygen.png](media/mac/ssh-keygen.png)
 
-   * Run `brew install ssh-copy-id` to get the SSH key upload tool.
+   b. Run `brew install ssh-copy-id` to get the SSH key upload tool.
    
    ![ssh-copy-id.png](media/mac/ssh-copy-id.png)
 
-   * Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
+   c. Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
 
    ![run-ssh-copy-id.png](media/mac/run-ssh-copy-id.png)
 
@@ -170,9 +172,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 6. Debug `main.c`.
 
-   * Open `main.c` and insert breakpoints by pressing `F9` key.
-   * Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
-   * Press `F10` to debug step by step. Enjoy debugging!
+   a. Open `main.c` and insert breakpoints by pressing `F9` key.
+   b. Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
+   c. Press `F10` to debug step by step. Enjoy debugging!
 
    ![main.png](media/mac/main.png)
 
