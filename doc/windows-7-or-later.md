@@ -91,23 +91,21 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       a. Type `code` command in your Terminal.
       
       b. In VS Code, press `Ctrl + P` and type `ext install c/c++` as below.
+
       ![ext.png](media/win/ext.png)
       
       c. Click `Install` to install the exntension and reload VS Code as prompted. 
+
       ![install.png](media/win/install.PNG)
 
 
 2. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
-   a. Run `ssh-keygen` command in Terminal to generate SSH key.
+   a. Run `ssh-keygen` command in `Git Bash` to generate SSH key.
    
    ![ssh-keygen.png](media/win/ssh-keygen.PNG)
 
-   b. Run `brew install ssh-copy-id` to get the SSH key upload tool.
-   
-   ![ssh-copy-id.png](media/win/ssh-copy-id.PNG)
-
-   c. Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
+   b. Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
 
    ![run-ssh-copy-id.png](media/win/run-ssh-copy-id.PNG)
 
