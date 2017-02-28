@@ -46,7 +46,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    docker pull zhijzhao/raspberrypi
    ```
 
-   > Below `<>` part needs to be replace with your own value.
+   > Below `<>` part needs to be replaced with your own value.
 
    ```bash
    docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
@@ -69,7 +69,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    docker pull zhijzhao/raspberrypi
    ```
 
-   > Below `<>` parts need to be replace with your own values.
+   > Below `<>` parts need to be replaced with your own values.
 
    ```bash
    docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
@@ -102,7 +102,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       b. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
       ![ext.png](media/mac/ext.png)
       
-      c. Click `Install` to install the exntension and reload VS Code as prompted. 
+      c. Click `Install` to install the extension and reload VS Code as prompted. 
       ![install.png](media/mac/install.png)
 
 
