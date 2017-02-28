@@ -75,7 +75,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
    ```
 
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>` should be replaced with your repo path, same as build step.
+   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` should be replaced with your repo path, same as build step.
    * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
 ![docker-deploy.png](media/mac/docker-deploy.png)
