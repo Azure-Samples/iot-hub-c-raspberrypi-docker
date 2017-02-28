@@ -91,7 +91,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       a. Type `code` command in your Terminal.
       
       b. In VS Code, press `Ctrl + P` and type `ext install c/c++` as below.
-      ![ext.png](media/win/ext.PNG)
+      ![ext.png](media/win/ext.png)
       
       c. Click `Install` to install the exntension and reload VS Code as prompted. 
       ![install.png](media/win/install.PNG)
