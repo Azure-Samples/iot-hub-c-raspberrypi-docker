@@ -40,13 +40,13 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    mkdir build
    ```
 
-3. Run below command to do the build. 
+3. Run below commands to do the build. 
 
    ```bash
    docker pull zhijzhao/raspberrypi
    ```
 
-   > Below part that's quoted with `<>` needs to be replace with your own value.
+   > Below `<>` part needs to be replace with your own value.
 
    ```bash
    docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
@@ -63,13 +63,13 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
 ## Deploy and run the built app
 
-1. Run below command to deploy the contents of `src` folder to home folder of your Pi.
+1. Run below commands to deploy the contents of `src` folder to home folder of your Pi.
 
    ```bash
    docker pull zhijzhao/raspberrypi
    ```
 
-   > Below parts that're quoted with `<>` need to be replace with your own values.
+   > Below `<>` parts need to be replace with your own values.
 
    ```bash
    docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
