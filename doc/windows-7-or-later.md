@@ -121,7 +121,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
-   ![press-f5.png](media/win/press-f5.PNG)
+   ![press-f5.png](media/win/press-f5.png)
 
    * Choose `C++(GDB/LLDB)`. `launch.json` is generated automatically.
 
