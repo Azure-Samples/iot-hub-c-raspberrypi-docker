@@ -173,7 +173,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 6. Debug `main.c`.
 
    a. Open `main.c` and insert breakpoints by pressing `F9` key.
+
    b. Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
+   
    c. Press `F10` to debug step by step. Enjoy debugging!
 
    ![main.png](media/mac/main.png)
