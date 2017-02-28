@@ -71,14 +71,14 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![docker-deploy.png](media/win/docker-deploy.PNG)
 
-2. Use SSH to log in the device and run the deployed app.
+2. Open your `Git Bash` program and execute below commands to run the built app.
 
    ```bash
    ssh <user name>@<device ip address>
    sudo ./build/app
    ```
 
-![ssh.png](media/ssh.png)
+   ![ssh.png](media/win/ssh.PNG)
 
 ## Debug the app
 
