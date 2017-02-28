@@ -54,7 +54,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 ## Deploy and run the built app
 
-1. Run below commands to deploy the contents of `src` folder to home folder of your Pi.
+1. Run below commands to deploy your repo contents to the home folder of your Pi.
 
    ```bash
    docker pull zhijzhao/raspberrypi
