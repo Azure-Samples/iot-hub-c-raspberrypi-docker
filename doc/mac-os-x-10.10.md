@@ -59,7 +59,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
-![docker-build.png](media/mac/docker-build.png)
+   ![docker-build.png](media/mac/docker-build.png)
 
 ## Deploy and run the built app
 
@@ -78,7 +78,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` should be replaced with your repo path, same as build step.
    * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
-![docker-deploy.png](media/mac/docker-deploy.png)
+   ![docker-deploy.png](media/mac/docker-deploy.png)
 
 2. Use SSH to log in the device and run the deployed app.
 
@@ -87,7 +87,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    sudo ./build/app
    ```
 
-![ssh.png](media/mac/ssh.png)
+   ![ssh.png](media/mac/ssh.png)
 
 ## Debug the app
 
