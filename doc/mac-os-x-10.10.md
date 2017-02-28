@@ -23,7 +23,7 @@ To install Git, use the [Homebrew](http://brew.sh) package management utility by
    ```
 
 ### Install Docker
-Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get Docker for Mac` link. Click it for download and installation.
+Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get Docker for Mac` link. Click it for download and installation.
 
 ## Build C code using Docker
 
