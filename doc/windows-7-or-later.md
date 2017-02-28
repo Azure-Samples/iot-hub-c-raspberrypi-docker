@@ -84,30 +84,32 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 1. Install Visual Studio Code
 
-   * [Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor.
+   * [Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor.
 
    * Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
 
-      1. Type `code` command in your Terminal.
-      2. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
-      ![ext.png](media/ext.png)
-      3. Click `Install` to install the exntension and reload VS Code as prompted. 
-      ![install.png](media/install.png)
+      a. Type `code` command in your Terminal.
+      
+      b. In VS Code, press `Ctrl + P` and type `ext install c/c++` as below.
+      ![ext.png](media/win/ext.PNG)
+      
+      c. Click `Install` to install the exntension and reload VS Code as prompted. 
+      ![install.png](media/win/install.PNG)
 
 
 2. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
-   * Run `ssh-keygen` command in Terminal to generate SSH key.
+   a. Run `ssh-keygen` command in Terminal to generate SSH key.
    
-   ![ssh-keygen.png](media/ssh-keygen.png)
+   ![ssh-keygen.png](media/win/ssh-keygen.PNG)
 
-   * Run `brew install ssh-copy-id` to get the SSH key upload tool.
+   b. Run `brew install ssh-copy-id` to get the SSH key upload tool.
    
-   ![ssh-copy-id.png](media/ssh-copy-id.png)
+   ![ssh-copy-id.png](media/win/ssh-copy-id.PNG)
 
-   * Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
+   c. Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
 
-   ![run-ssh-copy-id.png](media/run-ssh-copy-id.png)
+   ![run-ssh-copy-id.png](media/win/run-ssh-copy-id.PNG)
 
 3. Run below command to open `src` folder with VS Code.
 
@@ -115,17 +117,17 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    code src
    ```
 
-   ![src-folder.png](media/src-folder.png)
+   ![src-folder.png](media/win/src-folder.PNG)
 
 4. Generate `lanuch.json`.
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
-   ![press-f5.png](media/press-f5.png)
+   ![press-f5.png](media/win/press-f5.PNG)
 
    * Choose `C++(GDB/LLDB)`. `launch.json` is generated automatically.
 
-   ![new-launch-json.png](media/new-launch-json.png)
+   ![new-launch-json.png](media/win/new-launch-json.PNG)
 
 5. Config `launch.json`.
 
@@ -157,15 +159,17 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * `osx` specifies the debugger, which should be `gdb` instead of `lldb`. Simply replace its value with `Linux`'s.
 
-   ![updated-launch-json.png](media/updated-launch-json.png)
+   ![updated-launch-json.png](media/win/updated-launch-json.PNG)
 
 6. Debug `main.c`.
 
-   * Open `main.c` and insert breakpoints by pressing `F9` key.
-   * Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
-   * Press `F10` to debug step by step. Enjoy debugging!
+   a. Open `main.c` and insert breakpoints by pressing `F9` key.
 
-   ![main.png](media/main.png)
+   b. Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
+   
+   c. Press `F10` to debug step by step. Enjoy debugging!
+
+   ![main.png](media/win/main.PNG)
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
