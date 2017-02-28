@@ -50,7 +50,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
-![docker-build.png](media/win/docker-build.png)
+   ![docker-build.png](media/win/docker-build.png)
 
 ## Deploy and run the built app
 
