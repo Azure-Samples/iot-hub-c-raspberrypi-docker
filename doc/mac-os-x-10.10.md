@@ -97,6 +97,13 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
 
+      1. Type `code` command in your Terminal.
+      2. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
+      ![ext.png](media/ext.png)
+      3. Click `Install` to install the exntension and reload VS Code as prompt. 
+      ![install.png](media/install.png)
+
+
 2. The `C/C++` extension needs a pipe program to communicate with a remote shell for remote debugging. Here we choose SSH. To avoid password input, we generate SSH key and upload it to Pi. 
 
    * Run `ssh-keygen` command in Terminal to generate SSH key.
