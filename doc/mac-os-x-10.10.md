@@ -100,7 +100,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       1. Type `code` command in your Terminal.
       2. In VS Code, press `Cmd + P` and type `ext install c/c++` as below.
       ![ext.png](media/ext.png)
-      3. Click `Install` to install the exntension and reload VS Code as prompt. 
+      3. Click `Install` to install the exntension and reload VS Code as prompted. 
       ![install.png](media/install.png)
 
 
@@ -160,7 +160,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src"
+            "/home/pi/src": "</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>"
       },
       ```
 
