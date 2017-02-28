@@ -56,7 +56,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
 4. Choose 'y' or 'n' to allow Microsoft collect your data or not. During build, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and build action name.
 
-![docker-build.png](doc/media/docker-build.png)
+![docker-build.png](media/docker-build.png)
 
 ## Deploy and run the built app
 
@@ -72,7 +72,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
 2. Choose 'y' or 'n' to allow Microsoft collect your data or not. During deploy, you'll see below prompt message whether to join Microsoft data collection, type 'y' to join it or 'n' not to. Microsoft will not collect any credential info, but only device type and deploy action name.
 
-![docker-deploy.png](doc/media/docker-deploy.png)
+![docker-deploy.png](media/docker-deploy.png)
 
 3. Use SSH to log in the device and run the deployed app.
 
@@ -81,7 +81,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    sudo ./build/app
    ```
 
-![ssh.png](doc/media/ssh.png)
+![ssh.png](media/ssh.png)
 
 ## Debug the app
 
@@ -95,15 +95,15 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    * Run `ssh-keygen` command in Terminal to generate SSH key.
    
-   ![ssh-keygen.png](doc/media/ssh-keygen.png)
+   ![ssh-keygen.png](media/ssh-keygen.png)
 
    * Run `brew install ssh-copy-id` to get the SSH key upload tool.
    
-   ![ssh-copy-id.png](doc/media/ssh-copy-id.png)
+   ![ssh-copy-id.png](media/ssh-copy-id.png)
 
    * Run `ssh-copy-id pi@<device IP address>` to upload the SSH key to device.
 
-   ![run-ssh-copy-id.png](doc/media/run-ssh-copy-id.png)
+   ![run-ssh-copy-id.png](media/run-ssh-copy-id.png)
 
 3. Run below command to open `src` folder with VS Code.
 
@@ -111,17 +111,17 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    code src
    ```
 
-   ![src-folder.png](doc/media/src-folder.png)
+   ![src-folder.png](media/src-folder.png)
 
 4. Generate `lanuch.json`.
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
-   ![press-f5.png](doc/media/press-f5.png)
+   ![press-f5.png](media/press-f5.png)
 
    * Choose `C++(GDB/LLDB)`. `launch.json` is generated automatically.
 
-   ![new-launch-json.png](doc/media/new-launch-json.png)
+   ![new-launch-json.png](media/new-launch-json.png)
 
 5. Config `launch.json`.
 
@@ -153,7 +153,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    * `osx` specifies the debugger, which should be `gdb` instead of `lldb`. Simply replace its value with `Linux`'s.
 
-   ![updated-launch-json.png](doc/media/updated-launch-json.png)
+   ![updated-launch-json.png](media/updated-launch-json.png)
 
 6. Debug `main.c`.
 
@@ -161,7 +161,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    * Start debugging by pressing `F5` key. Code execution will stop at the breakpoint you set.
    * Press `F10` to debug step by step. Enjoy debugging!
 
-   ![main.png](doc/media/main.png)
+   ![main.png](media/main.png)
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
