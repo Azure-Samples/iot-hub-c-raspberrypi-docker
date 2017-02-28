@@ -44,13 +44,18 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   ```
+
+   > Below part that's quoted with `<>` needs to be replace with your own value.
+
+   ```bash
+   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial` is the full path of repo folder. Replace it with the repo path on your host machine.
+   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` is the full path of repo folder. Replace it with the repo path on your host machine.
    * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
-   * `-it` option allows you to interact with the running docker container.
+   * `-it` option allows you to interact with the running Docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
 
@@ -62,18 +67,23 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
 
    ```bash
    docker pull zhijzhao/raspberrypi
-   docker run --rm -v /Users/user-name/some-path/docker-based-raspberrypi-c-tutorial:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip xx.xx.xx.xx --username pi --password raspberry
    ```
 
-   * `/Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src` should be replaced with your repo path, same as build step.
-   * `--deviceip xx.xx.xx.xx --username pi --password raspberry` includes IP address, user name and password credentials. Please replace them with your own accordingly.
+   > Below parts that're quoted with `<>` need to be replace with your own values.
+
+   ```bash
+   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
+   ```
+
+   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>` should be replaced with your repo path, same as build step.
+   * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
 ![docker-deploy.png](media/docker-deploy.png)
 
 3. Use SSH to log in the device and run the deployed app.
 
    ```bash
-   ssh pi@xx.xx.xx.xx
+   ssh <user name>@<device ip address>
    sudo ./build/app
    ```
 
@@ -97,7 +107,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
    
    ![ssh-copy-id.png](media/ssh-copy-id.png)
 
-   * Run `ssh-copy-id pi@<device IP address>` to upload the SSH key to device.
+   * Run `ssh-copy-id <user name>@<device IP address>` to upload the SSH key to device.
 
    ![run-ssh-copy-id.png](media/run-ssh-copy-id.png)
 
@@ -132,7 +142,7 @@ Got to [Docker website](https://www.docker.com/). Scroll down and find the `Get 
             "pipeCwd": "/usr/bin",
             "pipeProgram": "/usr/bin/ssh",
             "pipeArgs": [
-                  "user@10.10.10.10"
+                  "<user name>@<device ip address>"
             ],
             "debuggerPath": "/usr/bin/gdb"
       },
