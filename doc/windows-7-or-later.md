@@ -71,7 +71,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![docker-deploy.png](media/win/docker-deploy.PNG)
 
-3. Use SSH to log in the device and run the deployed app.
+2. Use SSH to log in the device and run the deployed app.
 
    ```bash
    ssh <user name>@<device ip address>
