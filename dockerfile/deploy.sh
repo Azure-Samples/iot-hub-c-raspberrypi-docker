@@ -1,5 +1,4 @@
 #!/bin/bash
-
 save_deviceip=0
 save_username=0
 save_password=0
@@ -49,14 +48,12 @@ fi
 
 sshpass -p $password scp -vo UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r $srcdockerpath $username@$deviceip:$destdir
 
-mac=`sshpass -p $password ssh $username@$deviceip 'cat /sys/class/net/eth0/address'`
-
 if [ $? -eq 0 ]; then
     echo Deploy succeeded!
 else
     exit $?
 fi
 
-
+mac=`sshpass -p $password ssh -o StrictHostKeyChecking=no $username@$deviceip 'cat /sys/class/net/eth0/address'`
 device=$(echo $DEVICETYPE)
 source ./bi/bi.sh --device $device --event dockerdeploy --mac $mac
