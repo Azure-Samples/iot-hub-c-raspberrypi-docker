@@ -27,6 +27,12 @@ biHelper.getMd5Hash = function (inputValue) {
   return md5sum.digest('hex');
 }
 
+biHelper.getSha256Hash = function (inputValue) {
+  var sha256 = crypto.createHash('sha256');
+  sha256.update(inputValue);
+  return sha256.digest('hex');
+};
+
 module.exports = biHelper
 
 

@@ -9,7 +9,7 @@ var properties = {};
 properties.board = device;
 
 if (process.argv[4]) {
-  var mac = process.argv[4];
-  properties.boardmac = biHelper.getMd5Hash(mac);  
+  var formattedMac = process.argv[4].toUpperCase().replace(/:/g, '-'); 
+  properties.boardmac = biHelper.getSha256Hash(formattedMac);  
 }
 biHelper.trackEvent(event, properties);
