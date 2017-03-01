@@ -1,5 +1,4 @@
 #!/bin/bash
-
 save_deviceip=0
 save_username=0
 save_password=0
@@ -55,6 +54,6 @@ else
     exit $?
 fi
 
-
+mac=`sshpass -p $password ssh -o StrictHostKeyChecking=no $username@$deviceip 'cat /sys/class/net/eth0/address'`
 device=$(echo $DEVICETYPE)
-source ./bi/bi.sh --device $device --event dockerdeploy
+source ./bi/bi.sh --device $device --event dockerdeploy --mac $mac

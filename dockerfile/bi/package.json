@@ -1,14 +1,15 @@
 {
-    "name": "bihelper",
-    "displayName": "bi helper",
-    "description": "send bi data to application insight",
-    "version": "0.0.1",
-    "main": "index.js",    
-    "scripts": {        
-        "test": "node ./node_modules/test"
-    },
-    "devDependencies": {
-        "az-iot-bi": "^0.1.16",
-        "readline-sync": "^1.4.4"
-    }
+  "name": "bihelper",
+  "displayName": "bi helper",
+  "description": "send bi data to application insight",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/test"
+  },
+  "devDependencies": {
+    "az-iot-bi": "git+https://github.com/azure/az-iot-bi.git#yungez",
+    "readline-sync": "^1.4.4",
+    "fs-extra": "^1.0.0"
+  }
 }
