@@ -30,8 +30,8 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 1. Run below command to clone the repo.
 
    ```bash
-   git clone https://github.com/Azure-Samples/docker-based-raspberrypi-c-tutorial.git
-   cd docker-based-raspberrypi-c-tutorial
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
+   cd iot-hub-c-raspberrypi-docker
    ```
 
 2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`.
@@ -49,11 +49,11 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` is the full path of repo folder. Replace it with the repo path on your host machine.
+   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` is the full path of repo folder. Replace it with the repo path on your host machine.
    * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
@@ -72,10 +72,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` parts need to be replaced with your own values.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
+   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
    ```
 
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` should be replaced with your repo path, same as build step.
+   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` should be replaced with your repo path, same as build step.
    * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
    ![docker-deploy.png](media/mac/docker-deploy.png)
@@ -162,7 +162,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>"
+            "/home/pi/src": "</Users/user-name/some-path/iot-hub-c-raspberrypi-docker/src>"
       },
       ```
 
