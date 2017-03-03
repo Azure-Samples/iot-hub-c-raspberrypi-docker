@@ -1,51 +1,73 @@
 #!/bin/bash
-save_cmakedir=0
-save_outputdir=0
+save_source=0
+save_output=0
 
 for arg in "$@"
 do   
-    if [ $save_outputdir == 1 ]
+    if [ $save_output == 1 ]
     then
-        outputdir="/repo/$arg"
-        save_outputdir=0
-    elif [ $save_cmakedir == 1 ]
+        output=$arg
+        save_output=0
+    elif [ $save_source == 1 ]
     then
-        cmakedir="/repo/$arg"
-        save_cmakedir=0
+        source=$arg
+        save_source=0
     else
         case "$arg" in
-            "--outputdir" ) save_outputdir=1;;
-            "--cmakedir" ) save_cmakedir=1;;
+            "--output" ) save_output=1;;
+            "--source" ) save_source=1;;
         esac
     fi
 done
 
-if [ -z ${outputdir+x} ]; then 
-    outputdir=/repo
+# case 1: output not set, source not set
+# case 2: output not set, source set
+if [ -z ${output+x} ]; then
+    if [ -z ${source+x} ]; then 
+        source=
+        output=build
+    else
+        if [ "$source" == "." ]; then
+            output=build
+        else
+            output=$source/../build
+        fi
+    fi
 fi
 
-if [ ! -d "$outputdir" ]; then
-    echo no build dir $outputdir
+# case 3: output set, source not set
+if [ -z ${source+x} ]; then 
+    source=
+fi
+
+# case 4: output set, source set
+output=/repo/$output
+source=/repo/$source
+
+echo $output
+echo $source
+
+if [ ! -d $output ]; then
+    mkdir -p $output
+    if [ $? -ne 0 ] ; then
+        echo create output folder $output failed
+        exit 1
+    fi
+fi
+
+if [ ! -d $source ]; then
+    echo source dir $source doesnot exist in container
     exit 1
 fi
 
-if [ -z ${cmakedir+x} ]; then 
-    cmakedir=/repo/src
-fi
-
-if [ ! -d "$cmakedir" ]; then
-    echo no cmake dir $cmakedir
+if [ ! -f $source/CMakeLists.txt ]; then
+    echo $source/CMakeLists.txt file doesnot exist
     exit 1
 fi
 
-if [ ! -f "$cmakedir/CMakeLists.txt" ]; then
-    echo no $cmakedir/CMakeLists.txt
-    exit 1
-fi
+pushd $output > /dev/null
 
-pushd $outputdir > /dev/null
-
-cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake $cmakedir && make
+cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake $source && make
 
 if [ $? -eq 0 ]; then
     echo Build succeeded!
