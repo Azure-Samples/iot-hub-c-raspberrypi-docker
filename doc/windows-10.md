@@ -27,7 +27,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    * Right click the Docker icon in notificiation area and click `Settings...`.
    * Choose the drive that your repo is cloned to.
 
-   ![docker-share.png](media/win/docker-share.PNG)
+   ![docker-share.png](media/win/docker-share.png)
 
 2. Run below commands to do the build. 
 
