@@ -120,10 +120,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/mac/run-ssh-copy-id.png)
 
-3. Run below command to open `src` folder with VS Code.
+3. Run below command to open `blink` folder with VS Code.
 
    ```bash
-   code src
+   code iot-hub-c-raspberrypi-docker/samples/blink
    ```
 
    ![src-folder.png](media/mac/src-folder.png)
@@ -142,7 +142,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
  
-   * `cwd` is the working folder on device and should be `/home/pi/src`.
+   * `cwd` is the working folder on device and should be `/home/pi/blink`.
 
    * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
 
@@ -162,7 +162,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "</Users/user-name/some-path/iot-hub-c-raspberrypi-docker/src>"
+            "/home/pi/blink": "</Users/user-name/some-path/iot-hub-c-raspberrypi-docker/samples/blink>"
       },
       ```
 
@@ -179,6 +179,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    c. Press `F10` to debug step by step. Enjoy debugging!
 
    ![main.png](media/mac/main.png)
+
+## Send message to Azure IoT hub
+
+The `zhijzhao/raspberrypi` docker image also includes Azure IoT C SDK. If you're interested in how to send messages to IoT Hub, the source code is under `azure-iot-hub` folder. Simply replace the `blink` folder name with `azure-iot-hub` and all the above steps/commands still work.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
