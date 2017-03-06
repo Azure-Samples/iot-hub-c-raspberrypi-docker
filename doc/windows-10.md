@@ -53,7 +53,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 ## Deploy and run the built app
 1. Open `Git Bash` program. 
 
-   ![git-bash.png](media/win/git-bash.PNG)
+   ![git-bash.png](media/win/git-bash.png)
 
 2. Use SCP to deploy the built binary and sample code to your Pi's `/home/pi` folder.
 
