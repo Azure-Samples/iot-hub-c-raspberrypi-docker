@@ -95,15 +95,15 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/win/run-ssh-copy-id.PNG)
 
-   c. Run below command to open the `blink` folder.
+4. Generate `lanuch.json`.
+
+   * Run below command to open the `blink` folder.
 
    ```bash
    code iot-hub-c-raspberrypi-docker\samples\blink
    ```
 
    ![src-folder.png](media/win/src-folder.PNG)
-
-4. Generate `lanuch.json`.
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
