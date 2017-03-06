@@ -19,16 +19,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
-   cd iot-hub-c-raspberrypi-docker
    ```
 
-2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`.
-
-   ```bash
-   mkdir build
-   ```
-
-3. Run below commands to do the build. 
+2. Run below commands to do the build. 
 
    ```bash
    docker pull zhijzhao/raspberrypi
@@ -37,36 +30,29 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   docker run --rm -v <d:\some-path\iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v <d:\some-path\iot-hub-c-raspberrypi-docker\samples>:/repo -it zhijzhao/raspberrypi /build.sh --source blink
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `<d:\some-path\iot-hub-c-raspberrypi-docker>` is the full path of repo folder. Replace it with the repo path on your host machine.
-   * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
+   * `<d:\some-path\iot-hub-c-raspberrypi-docker\samples>` is the full path of sample folder. Replace it with the path on your host machine.
+   * `-v` option maps your sample folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
-   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
-   * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
+   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
+   * `/build.sh` is the shell script name inside the Ubuntu container. `--source blink` tells `build.sh` that `CMakeList.txt` is under `blink` folder.
 
    ![docker-build.png](media/win/docker-build.PNG)
 
 ## Deploy and run the built app
 
-1. Run below commands to deploy your repo contents to the home folder of your Pi.
+1. Open your `Git Bash` program and use SCP to deploy your `blink` folder and `build` folder to your Pi's `/home/pi` folder.
+
+  > Below `<>` parts need to be replaced with your own values.
 
    ```bash
-   docker pull zhijzhao/raspberrypi
+   cd </d/iot-hub-c-raspberrypi-docker/samples>
+   scp -r blink <user name>@<device ip address>:/home/pi
+   scp -r build <user name>@<device ip address>:/home/pi
    ```
-
-   > Below `<>` parts need to be replaced with your own values.
-
-   ```bash
-   docker run --rm -v <d:\some-path\iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
-   ```
-
-   * `<d:\some-path\iot-hub-c-raspberrypi-docker>` should be replaced with your repo path, same as build step.
-   * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
-
-   ![docker-deploy.png](media/win/docker-deploy.PNG)
 
 2. Open your `Git Bash` program and execute below commands to run the built app.
 
@@ -163,6 +149,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    c. Press `F10` to debug step by step. Enjoy debugging!
 
    ![main.png](media/win/main.PNG)
+
+## Send message to Azure IoT hub
+
+The `zhijzhao/raspberrypi` docker image also includes Azure IoT C SDK. If you're interested in how to send messages to IoT Hub, please reference source code of `azure-iot-hub` folder. For build and deploy steps, simply replace the `blink` folder name with `azure-iot-hub`.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
