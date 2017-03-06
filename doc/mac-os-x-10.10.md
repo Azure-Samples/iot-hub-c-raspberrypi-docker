@@ -30,8 +30,8 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 1. Run below command to clone the repo.
 
    ```bash
-   git clone https://github.com/Azure-Samples/docker-based-raspberrypi-c-tutorial.git
-   cd docker-based-raspberrypi-c-tutorial
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
+   cd iot-hub-c-raspberrypi-docker
    ```
 
 2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`.
@@ -49,11 +49,11 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` is the full path of repo folder. Replace it with the repo path on your host machine.
+   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` is the full path of repo folder. Replace it with the repo path on your host machine.
    * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
    * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
@@ -72,10 +72,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` parts need to be replaced with your own values.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
+   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
    ```
 
-   * `</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial>` should be replaced with your repo path, same as build step.
+   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` should be replaced with your repo path, same as build step.
    * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
 
    ![docker-deploy.png](media/mac/docker-deploy.png)
@@ -120,10 +120,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/mac/run-ssh-copy-id.png)
 
-3. Run below command to open `src` folder with VS Code.
+3. Run below command to open `blink` folder with VS Code.
 
    ```bash
-   code src
+   code iot-hub-c-raspberrypi-docker/samples/blink
    ```
 
    ![src-folder.png](media/mac/src-folder.png)
@@ -142,7 +142,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
  
-   * `cwd` is the working folder on device and should be `/home/pi/src`.
+   * `cwd` is the working folder on device and should be `/home/pi/blink`.
 
    * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
 
@@ -162,7 +162,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "</Users/user-name/some-path/docker-based-raspberrypi-c-tutorial/src>"
+            "/home/pi/blink": "</Users/user-name/some-path/iot-hub-c-raspberrypi-docker/samples/blink>"
       },
       ```
 
@@ -179,6 +179,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    c. Press `F10` to debug step by step. Enjoy debugging!
 
    ![main.png](media/mac/main.png)
+
+## Send message to Azure IoT hub
+
+The `zhijzhao/raspberrypi` docker image also includes Azure IoT C SDK. If you're interested in how to send messages to IoT Hub, the source code is under `azure-iot-hub` folder. Simply replace the `blink` folder name with `azure-iot-hub` and all the above steps/commands still work.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

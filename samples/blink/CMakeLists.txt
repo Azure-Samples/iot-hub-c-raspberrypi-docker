@@ -7,5 +7,5 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
   set (CMAKE_C_FLAGS "--std=c99 -g ${CMAKE_C_FLAGS}")
 endif()
 
-add_executable(app main.c)
-target_link_libraries(app wiringPi)
+add_executable(blink main.c)
+target_link_libraries(blink wiringPi)
