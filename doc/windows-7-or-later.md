@@ -155,7 +155,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 ## Send message to Azure IoT hub
 
-The `zhijzhao/raspberrypi` docker image also includes Azure IoT C SDK. If you're interested in how to send messages to IoT Hub, the source code is under `azure-iot-hub` folder. Simply replace the `blink` folder name with `azure-iot-hub` and all the above steps/commands still work.
+If you're interested in how to send messages to IoT Hub, please check [Azure IoT Hub](azure-iot-hub-win.md) tutorial.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
