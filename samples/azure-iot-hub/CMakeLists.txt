@@ -15,17 +15,17 @@ link_directories(${azure_IoT_Sdk_c}/cmake/iotsdk_linux/serializer
                   ${azure_IoT_Sdk_c}/cmake/iotsdk_linux/c-utility
                   ${azure_IoT_Sdk_c}/cmake/iotsdk_linux/umqtt)
 
-add_executable(iot main.c)
-target_link_libraries(iot wiringPi
-                          serializer
-                          iothub_client
-                          iothub_client_mqtt_transport
-                          umqtt
-                          aziotsharedutil
-                          ssl
-                          crypto
-                          curl
-                          pthread
-                          m
-                          ssl
-                          crypto)
+add_executable(azure-blink main.c)
+target_link_libraries(azure-blink wiringPi
+                                  serializer
+                                  iothub_client
+                                  iothub_client_mqtt_transport
+                                  umqtt
+                                  aziotsharedutil
+                                  ssl
+                                  crypto
+                                  curl
+                                  pthread
+                                  m
+                                  ssl
+                                  crypto)

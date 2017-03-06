@@ -123,7 +123,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
         "pipeCwd": "C:\\Program Files\\Git\\usr\\bin",
         "pipeProgram": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
         "pipeArgs": [
-          <user name>@<device ip address>
+          "<user name>@<device ip address>"
         ],
         "debuggerPath": "/usr/bin/gdb"
       },
