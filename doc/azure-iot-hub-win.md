@@ -11,6 +11,6 @@ To build and deploy the sample code, simply follow the same steps/commands as we
 
 ### Run the app
 
-Follow the same steps as the blink sample. Use SSH to login to Pi device and run the `azure-blink` azure with `device connection string` parameter you prepared [earlier](### Azure IoT hub).
+Follow the same steps as the blink sample. Use SSH to login to Pi device and run the `azure-blink` azure with `device connection string` parameter you prepared earlier.
 
 ![ssh.png](media/win/azure-iot-hub.PNG)
