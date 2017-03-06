@@ -71,7 +71,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * Open VS Code and install extension named `C/C++`. If you have already installed it, please make sure you're using the latest version.
 
-      a. Type `code` command in your Terminal.
+      a. Type `code` command in your console.
       
       b. In VS Code, press `Ctrl + P` and type `ext install c/c++` as below.
 
@@ -92,10 +92,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/win/run-ssh-copy-id.PNG)
 
-3. Run below command to open `src` folder with VS Code.
+   c. Run below command to open the `blink` folder.
 
    ```bash
-   code src
+   code iot-hub-c-raspberrypi-docker\samples\blink
    ```
 
    ![src-folder.png](media/win/src-folder.PNG)
@@ -114,7 +114,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
  
-   * `cwd` is the working folder on device and should be `/home/pi/src`.
+   * `cwd` is the working folder on device and should be `/home/pi/blink`.
 
    * `pipeTransport` is for authenticating pipe connection. Paste below properties to `launch.json` and update the user name and IP address accordingly.
 
@@ -134,7 +134,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
       ```
       "sourceFileMap": {
             // "remote": "local"
-            "/home/pi/src": "<d:\\some-path\\iot-hub-c-raspberrypi-docker\\src>"
+            "/home/pi/blink": "<d:\\some-path\\iot-hub-c-raspberrypi-docker\\samples\\blink>"
       },
       ```
 
