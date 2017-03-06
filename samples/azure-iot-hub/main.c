@@ -19,7 +19,6 @@
 
 extern int setenv (const char *, const char *, int);
 
-char *connectionString = ""; // initialize it with your own IoT device connection string.
 const int MAX_BLINK_TIMES = 20;
 const int LED_PIN = 7;
 int totalBlinkTimes = 1;
@@ -160,13 +159,19 @@ static bool setX509Certificate(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, char 
 
 int main(int argc, char *argv[])
 {
+    if (argc < 2)
+    {
+        printf("[Device] IoT Hub connection string should be passed as a parameter\r\n");
+        return 1;
+    }
+
     // Below line of code is for debugging only.
     // GPIO access requires sudo privilege. Setting environment variable WIRINGPI_GPIOMEM
     // to 1 can bypass this sudo requirement.
     setenv("WIRINGPI_GPIOMEM", "1", 1);
 
     char device_id[257];
-    char *device_id_src = get_device_id(connectionString);
+    char *device_id_src = get_device_id(argv[1]);
 
     if (device_id_src == NULL)
     {
@@ -190,13 +195,13 @@ int main(int argc, char *argv[])
     }
     else
     {
-        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
+        if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(argv[1], MQTT_Protocol)) == NULL)
         {
             (void)printf("[Device] ERROR: iotHubClientHandle is NULL!\r\n");
         }
         else
         {
-            if (strstr(connectionString, "x509=true") != NULL)
+            if (strstr(argv[1], "x509=true") != NULL)
             {
                 // Use X.509 certificate authentication.
                 if (!setX509Certificate(iotHubClientHandle, device_id))
