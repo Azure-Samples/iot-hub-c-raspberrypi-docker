@@ -115,7 +115,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 5. Config `launch.json`.
 
-   * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
+   * `program` is the full path of the deployed app on device. The built binary `blink`, under `build/blink` folder of host machine, is deployed to device's `/home/pi/blink` folder. So the full path value should be `/home/pi/blink/blink`.
  
    * `cwd` is the working folder on device and should be `/home/pi/blink`.
 
