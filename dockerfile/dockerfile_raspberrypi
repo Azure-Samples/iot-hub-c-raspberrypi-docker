@@ -12,7 +12,6 @@ RUN apt-get install -y \
     libssl-dev \
     make \
     pkg-config \
-    sshpass \
     uuid-dev \
     valgrind
 
@@ -33,7 +32,6 @@ ENV AZURE_IOT_SDK /azure-iot-sdk-c
 
 
 # copy build script
-COPY deploy.sh /deploy.sh
 COPY build.sh /build.sh
 
 

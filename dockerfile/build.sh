@@ -30,7 +30,7 @@ if [ -z ${output+x} ]; then
         if [ "$source" == "." ]; then
             output=build
         else
-            output=$source/../build
+            output=build/$source
         fi
     fi
 fi
@@ -43,9 +43,6 @@ fi
 # case 4: output set, source set
 output=/repo/$output
 source=/repo/$source
-
-echo $output
-echo $source
 
 if [ ! -d $output ]; then
     mkdir -p $output
