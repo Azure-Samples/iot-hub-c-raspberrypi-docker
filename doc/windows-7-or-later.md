@@ -43,25 +43,28 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    ![docker-build.png](media/win/docker-build.PNG)
 
 ## Deploy and run the built app
+1. Open `Git Bash` program. 
 
-1. Open your `Git Bash` program and use SCP to deploy your `blink` folder and `build` folder to your Pi's `/home/pi` folder.
+2. Use SCP to deploy the built binary and sample code to your Pi's `/home/pi` folder.
 
   > Below `<>` parts need to be replaced with your own values.
 
    ```bash
    cd </d/iot-hub-c-raspberrypi-docker/samples>
    scp -r blink <user name>@<device ip address>:/home/pi
-   scp -r build <user name>@<device ip address>:/home/pi
+   scp build/blink/blink <user name>@<device ip address>:/home/pi/blink
    ```
+   ![ssh.png](media/win/scp.PNG)
 
-2. Open your `Git Bash` program and execute below commands to run the built app.
+3. Use SSH to login in to the Pi device. Then add executable permission to the built app. Finally, run the app.
 
    ```bash
    ssh <user name>@<device ip address>
-   sudo ./build/app
+   chmod +x blink/blink
+   sudo blink/blink
    ```
 
-   ![ssh.png](media/win/ssh.PNG)
+   ![ssh.png](media/win/ssh-run.PNG)
 
 ## Debug the app
 
