@@ -21,6 +21,14 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
    ```
 
+3. Share the drive where the sample repo is clone.
+
+   * Make sure Docker is running.
+   * Right click the Docker icon in notificiation area and click `Settings...`.
+   * Choose the drive that your repo is cloned to.
+
+   ![docker-share.png](media/win/docker-share.PNG)
+
 2. Run below commands to do the build. 
 
    ```bash
@@ -44,6 +52,8 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 ## Deploy and run the built app
 1. Open `Git Bash` program. 
+
+   ![git-bash.png](media/win/git-bash.PNG)
 
 2. Use SCP to deploy the built binary and sample code to your Pi's `/home/pi` folder.
 
