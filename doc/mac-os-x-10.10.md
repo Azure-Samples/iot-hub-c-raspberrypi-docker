@@ -31,16 +31,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
-   cd iot-hub-c-raspberrypi-docker
    ```
 
-2. CMake is used for building the source code. We want all CMake files are placed in one standalone folder so that they won't mess up our existing code. Let's create the folder, say `build`.
-
-   ```bash
-   mkdir build
-   ```
-
-3. Run below commands to do the build. 
+2. Run below commands to do the build. 
 
    ```bash
    docker pull zhijzhao/raspberrypi
@@ -49,45 +42,39 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /build.sh --outputdir build
+   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>:/repo -it zhijzhao/raspberrypi /build.sh --source blink
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
-   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` is the full path of repo folder. Replace it with the repo path on your host machine.
-   * `-v` option maps your repo folder to `/repo` folder of the Ubuntu OS running inside Docker container.
+   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>` is the full path of sample folder. Replace it with the path on your host machine.
+   * `-v` option maps your sample folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
-   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfiles` folder if you're interested in how it works.
-   * `/build.sh` is the shell script name inside the Ubuntu container that we want to run with `--outputdir build` parameter.
+   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
+   * `/build.sh` is the shell script name inside the Ubuntu container. `--source blink` tells `build.sh` that `CMakeList.txt` is under `blink` folder.
 
    ![docker-build.png](media/mac/docker-build.png)
 
 ## Deploy and run the built app
+1. Use SCP to deploy the built binary and sample code to your Pi's `/home/pi` folder.
 
-1. Run below commands to deploy your repo contents to the home folder of your Pi.
-
-   ```bash
-   docker pull zhijzhao/raspberrypi
-   ```
-
-   > Below `<>` parts need to be replaced with your own values.
+  > Below `<>` parts need to be replaced with your own values.
 
    ```bash
-   docker run --rm -v </Users/user-name/some-path/iot-hub-c-raspberrypi-docker>:/repo -it zhijzhao/raspberrypi /deploy.sh --deviceip <device ip address> --username <user name> --password <device password>
+   cd </d/iot-hub-c-raspberrypi-docker/samples>
+   scp -r blink <user name>@<device ip address>:/home/pi
+   scp build/blink/blink <user name>@<device ip address>:/home/pi/blink
    ```
+   ![ssh.png](media/mac/scp.PNG)
 
-   * `</Users/user-name/some-path/iot-hub-c-raspberrypi-docker>` should be replaced with your repo path, same as build step.
-   * `--deviceip <device ip address> --username <user name> --password <device password>` includes IP address, user name and password credentials. Please replace them with your own accordingly.
-
-   ![docker-deploy.png](media/mac/docker-deploy.png)
-
-2. Use SSH to log in the device and run the deployed app.
+2. Use SSH to login in to the Pi device. Then add executable permission to the built app. Finally, run the app.
 
    ```bash
    ssh <user name>@<device ip address>
-   sudo ./build/app
+   chmod +x blink/blink
+   sudo blink/blink
    ```
 
-   ![ssh.png](media/mac/ssh.png)
+   ![ssh.png](media/mac/ssh-run.png)
 
 ## Debug the app
 
@@ -120,15 +107,15 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/mac/run-ssh-copy-id.png)
 
-3. Run below command to open `blink` folder with VS Code.
+3. Generate `lanuch.json`.
+
+   * Run below command to open `blink` folder.
 
    ```bash
    code iot-hub-c-raspberrypi-docker/samples/blink
    ```
 
    ![src-folder.png](media/mac/src-folder.png)
-
-4. Generate `lanuch.json`.
 
    * Press `F5` key. VS Code will prompt for environment selection.
 
@@ -138,9 +125,9 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![new-launch-json.png](media/mac/new-launch-json.png)
 
-5. Config `launch.json`.
+4. Config `launch.json`.
 
-   * `program` is the full path of the deployed app on device. The built binary is at `./build/app` and by default it's deployed to device's `/home/pi` folder. So the full path value should be `/home/pi/build/app`.
+   * `program` is the full path of the deployed app on device. The built binary `blink`, under `build/blink` folder of host machine, is deployed to device's `/home/pi/blink` folder. So the full path value should be `/home/pi/blink/blink`.
  
    * `cwd` is the working folder on device and should be `/home/pi/blink`.
 
@@ -182,7 +169,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
 ## Send message to Azure IoT hub
 
-The `zhijzhao/raspberrypi` docker image also includes Azure IoT C SDK. If you're interested in how to send messages to IoT Hub, the source code is under `azure-iot-hub` folder. Simply replace the `blink` folder name with `azure-iot-hub` and all the above steps/commands still work.
+If you're interested in how to send messages to IoT Hub, please check [Azure IoT Hub](azure-iot-hub-mac.md) tutorial.
 
 ## Contributing
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

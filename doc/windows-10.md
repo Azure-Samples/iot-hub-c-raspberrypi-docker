@@ -21,7 +21,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
    ```
 
-3. Share the drive where the sample repo is clone.
+2. Share the drive where the sample repo is clone.
 
    * Make sure Docker is running.
    * Right click the Docker icon in notificiation area and click `Settings...`.
@@ -29,7 +29,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![docker-share.png](media/win/docker-share.png)
 
-2. Run below commands to do the build. 
+3. Run below commands to do the build. 
 
    ```bash
    docker pull zhijzhao/raspberrypi
@@ -105,7 +105,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![run-ssh-copy-id.png](media/win/run-ssh-copy-id.PNG)
 
-4. Generate `lanuch.json`.
+3. Generate `lanuch.json`.
 
    * Run below command to open the `blink` folder.
 
@@ -123,7 +123,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 
    ![new-launch-json.png](media/win/new-launch-json.PNG)
 
-5. Config `launch.json`.
+4. Config `launch.json`.
 
    * `program` is the full path of the deployed app on device. The built binary `blink`, under `build/blink` folder of host machine, is deployed to device's `/home/pi/blink` folder. So the full path value should be `/home/pi/blink/blink`.
  
