@@ -5,3 +5,4 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 
 - [Windows 10](doc/windows-10.md)
 - [Mac OS X 10.10](doc/mac-os-x-10.10.md)
+- [Ubuntu 16.04](doc/ubuntu-16.04.md)
