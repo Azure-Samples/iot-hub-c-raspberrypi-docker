@@ -64,16 +64,34 @@ fi
 
 pushd $output > /dev/null
 
+startDate=$(($(date +%s%N)/1000000))
 cmake -DCMAKE_TOOLCHAIN_FILE=/toolchain.cmake $source && make
 
 if [ $? -eq 0 ]; then
+    ret=0
     echo Build succeeded!
 else
-    exit $?
+    ret=$?
 fi
 
+endDate=$(($(date +%s%N)/1000000))
+elapsedSeconds=$((endDate-startDate))
+
+subtext=`cat $source/CMakeLists.txt |grep "add_executable"`
+regex='^add_executable\(([a-zA-Z0-9]+)\s+.*\)'
+if [[ $subtext =~ $regex ]]; then
+  target=${BASH_REMATCH[1]}
+else
+  target=$source
+fi
+
+# bi message customized properties
+# 1. event
+# 2. source folder path: relative path from shared folder
+# 3. target name, from CMakeLists.txt
+# 4. exception
+# 5. event duration
+source /bi/bi.sh "dockerbuild" "source":$source "duration":$elapsedSeconds "error":$ret "sample":$target
+
 popd > /dev/null
-
-
-device=$(echo $DEVICETYPE)
-source ./bi/bi.sh --device $device --event dockerbuild
+exit $ret

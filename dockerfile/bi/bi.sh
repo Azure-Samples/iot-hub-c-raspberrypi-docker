@@ -1,26 +1,23 @@
 #!/bin/bash
-save_eventname=0;
-save_devicetype=0;
-save_mac=0;
 
-for arg in "$@"
+# bi script
+# bi message common properties
+# 1. device type
+# 2. docker container id
+# 3. docker image tag
+
+
+device=$(echo $DEVICETYPE)
+tag=$(echo $TAG)
+containerId=$(echo $HOSTNAME)
+
+for arg in "${@:2}"
 do
-  if [ $save_eventname == 1 ]; then
-    eventname="$arg"
-    save_eventname=0
-  elif [ $save_devicetype == 1 ]; then
-    devicetype="$arg"
-    save_devicetype=0
-  elif [ $save_mac == 1 ]; then
-    mac="$arg"
-    save_mac=0    
-  else
-    case "$arg" in
-         "--device" ) save_devicetype=1;;
-         "--event" ) save_eventname=1;;
-         "--mac" ) save_mac=1;;
-     esac
-   fi
+  echo arg is bi.sh is $arg
+  if [[ $arg != *":"* ]]; then
+    echo arguments should be in format key:value, eg: bi.sh event:build source:blink
+    exit 1
+  fi
 done
 
-nodejs ./bi/index.js $devicetype $eventname $mac
+nodejs /bi/index.js $@ "board":$device "dockertag":$tag "dockerContainerId":$containerId
