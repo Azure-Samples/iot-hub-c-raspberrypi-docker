@@ -2,14 +2,21 @@
 
 var biHelper = require('./biHelper.js');
 
-var device = process.argv[2];
-var event = process.argv[3];
+var event = process.argv[2];
 
 var properties = {};
-properties.board = device;
+process.argv.forEach(function(val, index, array){
+  if (index < 3) {
+    return;
+  }
+  
+  var res = val.split(':');
 
-if (process.argv[4]) {
-  var formattedMac = process.argv[4].toUpperCase().replace(/:/g, '-'); 
-  properties.boardmac = biHelper.getSha256Hash(formattedMac);  
-}
+  if (res.length != 2) {
+    console.log(`invalid argument: ${val}` );
+    return 1;
+  }
+  properties[res[0]] = res[1];
+})
+
 biHelper.trackEvent(event, properties);
