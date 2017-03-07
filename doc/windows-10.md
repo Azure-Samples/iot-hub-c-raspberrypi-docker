@@ -21,7 +21,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
    ```
 
-2. Share the drive where the sample repo is clone.
+2. Share the drive where the sample repo is cloned.
 
    * Make sure Docker is running.
    * Right click the Docker icon in notificiation area and click `Settings...`.

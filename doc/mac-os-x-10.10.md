@@ -33,7 +33,15 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker.git
    ```
 
-2. Run below commands to do the build. 
+2. Press `Cmd + Space` to activate Spotlight Search and search `Docker`. Choose the Docker applcation and start it.
+
+   ![spotlight-search.png](media/mac/spotlight-search.png)
+
+   Make sure Docker is running before executing any Docker command. First try restarting Docker whenever meet any Docker issues.
+   
+   ![docker-running.png](media/mac/docker-running.png)
+
+3. Run below commands to do the build.
 
    ```bash
    docker pull zhijzhao/raspberrypi
