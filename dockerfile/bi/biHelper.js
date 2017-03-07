@@ -14,7 +14,7 @@ var biSettingDir = '/repo/.bi';
 biHelper.trackEvent = function(eventName, properties) {
   fsExtra.ensureDirSync(biSettingDir);
 
-  bi.start('', biSettingDir);
+  bi.start('e721fbd8-ee4b-46e0-88f8-150c9013bedf', biSettingDir);
     
   bi.trackEvent(eventName, properties);
     

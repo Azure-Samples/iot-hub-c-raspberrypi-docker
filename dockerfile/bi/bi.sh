@@ -13,7 +13,6 @@ containerId=$(echo $HOSTNAME)
 
 for arg in "${@:2}"
 do
-  echo arg is bi.sh is $arg
   if [[ $arg != *":"* ]]; then
     echo arguments should be in format key:value, eg: bi.sh event:build source:blink
     exit 1
