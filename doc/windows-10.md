@@ -64,7 +64,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    scp -r blink <user name>@<device ip address>:/home/pi
    scp build/blink/blink <user name>@<device ip address>:/home/pi/blink
    ```
-   ![ssh.png](media/win/scp.PNG)
+   ![scp.png](media/win/scp.PNG)
 
 3. Use SSH to login in to the Pi device. Then add executable permission to the built app. Finally, run the app.
 
@@ -74,7 +74,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    sudo blink/blink
    ```
 
-   ![ssh.png](media/win/ssh-run.PNG)
+   ![ssh-run.png](media/win/ssh-run.PNG)
 
 ## Debug the app
 

@@ -68,11 +68,11 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
   > Below `<>` parts need to be replaced with your own values.
 
    ```bash
-   cd </d/iot-hub-c-raspberrypi-docker/samples>
+   cd </Users/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>
    scp -r blink <user name>@<device ip address>:/home/pi
    scp build/blink/blink <user name>@<device ip address>:/home/pi/blink
    ```
-   ![ssh.png](media/mac/scp.PNG)
+   ![scp.png](media/mac/scp.PNG)
 
 2. Use SSH to login in to the Pi device. Then add executable permission to the built app. Finally, run the app.
 
@@ -82,7 +82,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    sudo blink/blink
    ```
 
-   ![ssh.png](media/mac/ssh-run.png)
+   ![ssh-run.png](media/mac/ssh-run.png)
 
 ## Debug the app
 
