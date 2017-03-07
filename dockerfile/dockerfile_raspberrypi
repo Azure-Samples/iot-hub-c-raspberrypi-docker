@@ -37,6 +37,7 @@ COPY build.sh /build.sh
 
 # bi
 ENV DEVICETYPE raspberrypi
+ENV TAG latest
 
 COPY ./bi/ /bi
 RUN cd bi/ && npm install
