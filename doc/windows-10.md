@@ -24,7 +24,7 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 2. Share the drive where the sample repo is cloned.
 
    * Make sure Docker is running.
-   * Right click the Docker icon in notificiation area and click `Settings...`.
+   * Right click the Docker icon in notification area and click `Settings...`.
    * Choose the drive that your repo is cloned to.
 
    ![docker-share.png](media/win/docker-share.png)
@@ -32,20 +32,20 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
 3. Run below commands to do the build. 
 
    ```bash
-   docker pull zhijzhao/raspberrypi
+   docker pull microsoft/iot-hub-c-raspberrypi-build
    ```
 
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   docker run --rm -v <d:\some-path\iot-hub-c-raspberrypi-docker\samples>:/repo -it zhijzhao/raspberrypi /build.sh --source blink
+   docker run --rm -v <d:\some-path\iot-hub-c-raspberrypi-docker\samples>:/repo -it microsoft/iot-hub-c-raspberrypi-build /build.sh --source blink
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `<d:\some-path\iot-hub-c-raspberrypi-docker\samples>` is the full path of sample folder. Replace it with the path on your host machine.
    * `-v` option maps your sample folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
-   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
+   * `microsoft/iot-hub-c-raspberrypi-build` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container. `--source blink` tells `build.sh` that `CMakeList.txt` is under `blink` folder.
 
    ![docker-build.png](media/win/docker-build.PNG)

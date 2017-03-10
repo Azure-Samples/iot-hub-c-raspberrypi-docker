@@ -17,20 +17,20 @@ Go to [Docker website](https://docs.docker.com/engine/installation/linux/ubuntu/
 2. Run below commands to do the build.
 
    ```bash
-   sudo docker pull zhijzhao/raspberrypi
+   sudo docker pull microsoft/iot-hub-c-raspberrypi-build
    ```
 
    > Below `<>` part needs to be replaced with your own value.
 
    ```bash
-   sudo docker run --rm -v </home/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>:/repo -it zhijzhao/raspberrypi /build.sh --source blink
+   sudo docker run --rm -v </home/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>:/repo -it microsoft/iot-hub-c-raspberrypi-build /build.sh --source blink
    ```
 
    * `--rm` is a Docker running option. For details, please check [Docker reference](https://docs.docker.com/engine/reference/commandline/run/).
    * `</home/user-name/some-path/iot-hub-c-raspberrypi-docker/samples>` is the full path of sample folder. Replace it with the path on your host machine.
    * `-v` option maps your sample folder to `/repo` folder of the Ubuntu OS running inside Docker container.
    * `-it` option allows you to interact with the running Docker container.
-   * `zhijzhao/raspberrypi` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
+   * `microsoft/iot-hub-c-raspberrypi-build` is Docker image name. Reference `dockerfile` folder if you're interested in how it works.
    * `/build.sh` is the shell script name inside the Ubuntu container. `--source blink` tells `build.sh` that `CMakeList.txt` is under `blink` folder.
 
    ![docker-build.png](media/ubuntu/docker-build.png)
