@@ -12,10 +12,10 @@
 #include "azure_c_shared_utility/platform.h"
 #include "azure_c_shared_utility/threadapi.h"
 #include "azure_c_shared_utility/crt_abstractions.h"
-#include "iothub_client.h"
-#include "iothub_client_options.h"
-#include "iothub_message.h"
-#include "iothubtransportmqtt.h"
+#include "azureiot/iothub_client.h"
+#include "azureiot/iothub_client_options.h"
+#include "azureiot/iothub_message.h"
+#include "azureiot/iothubtransportmqtt.h"
 
 extern int setenv (const char *, const char *, int);
 

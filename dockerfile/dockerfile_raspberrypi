@@ -6,33 +6,24 @@ RUN apt-get update
 RUN apt-get install -y \
     build-essential \
     cmake \
-    curl \
+    debootstrap \
     git \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    make \
-    pkg-config \
-    uuid-dev \
-    valgrind
+    nodejs \
+    npm \
+    qemu-user-static
 
-RUN apt-get install -y nodejs \
-    npm    
+ENV SYSROOT /root/rpi/chroot-raspbian-armhf
+
 
 RUN git clone https://github.com/yungez/rpitools.git
-ENV SYSROOT ${PWD}/rpitools/raspbian-jessie-sysroot
 ENV CC ${PWD}/rpitools/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
 ENV CXX ${PWD}/rpitools/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
 
-COPY toolchain.cmake /toolchain.cmake
 
-# build azure iot sdks
-RUN git clone --recursive https://github.com/Azure/azure-iot-sdk-c.git
-RUN /azure-iot-sdk-c/build_all/linux/build.sh --toolchain-file /toolchain.cmake
-ENV AZURE_IOT_SDK /azure-iot-sdk-c
+COPY init.sh /init.sh
 
-
-# copy build script
 COPY build.sh /build.sh
+COPY toolchain.cmake /toolchain.cmake
 
 
 # bi
