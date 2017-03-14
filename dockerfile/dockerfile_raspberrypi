@@ -1,5 +1,5 @@
 FROM ubuntu
-LABEL description="this image is rapsberry pi ubuntu cross compilation environment, which installed necessary tool chain. Also with build azure iot sdks c."
+LABEL description="This image is a cross compilation environment for Raspberry Pi C, which includes the cross compiler and the sysroot of Raspbian."
 
 #those packages are necessary for building azure iot sdk
 RUN apt-get update
@@ -12,15 +12,15 @@ RUN apt-get install -y \
     npm \
     qemu-user-static
 
+
+COPY init.sh /init.sh
 ENV SYSROOT /root/rpi/chroot-raspbian-armhf
 
 
-RUN git clone https://github.com/yungez/rpitools.git
-ENV CC ${PWD}/rpitools/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
-ENV CXX ${PWD}/rpitools/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+RUN git clone https://github.com/raspberrypi/tools.git /tools && mv /tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64 /gcc-linaro-arm-linux-gnueabihf-raspbian-x64 && rm -rf /tools
+ENV CC /gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
+ENV CXX /gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++
 
-
-COPY init.sh /init.sh
 
 COPY build.sh /build.sh
 COPY toolchain.cmake /toolchain.cmake
