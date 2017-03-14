@@ -1,0 +1,7 @@
+language: python
+
+install:
+  - pip install cpplint
+
+script:
+  - cpplint samples/*/main.c
