@@ -6,16 +6,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#include <azure_c_shared_utility/platform.h>
+#include <azure_c_shared_utility/threadapi.h>
+#include <azure_c_shared_utility/crt_abstractions.h>
+#include <azureiot/iothub_client.h>
+#include <azureiot/iothub_client_options.h>
+#include <azureiot/iothub_message.h>
+#include <azureiot/iothubtransportmqtt.h>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
-
-#include "azure_c_shared_utility/platform.h"
-#include "azure_c_shared_utility/threadapi.h"
-#include "azure_c_shared_utility/crt_abstractions.h"
-#include "azureiot/iothub_client.h"
-#include "azureiot/iothub_client_options.h"
-#include "azureiot/iothub_message.h"
-#include "azureiot/iothubtransportmqtt.h"
 
 extern int setenv (const char *, const char *, int);
 

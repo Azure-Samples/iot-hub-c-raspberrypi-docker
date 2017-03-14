@@ -20,6 +20,4 @@ target_link_libraries(azure-blink wiringPi
                                   crypto
                                   curl
                                   pthread
-                                  m
-                                  ssl
-                                  crypto)
+                                  m)
