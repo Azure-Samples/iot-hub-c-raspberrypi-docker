@@ -17,7 +17,7 @@
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 
-extern int setenv (const char *, const char *, int);
+extern int setenv(const char *, const char *, int);
 
 const int MAX_BLINK_TIMES = 20;
 const int LED_PIN = 7;
