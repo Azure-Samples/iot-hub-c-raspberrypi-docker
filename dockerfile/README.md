@@ -7,7 +7,7 @@ This `dockerfile` folder is self-contained and it's the open source of Docker im
 2. Run below command to build the docker image. `your-temp-docker-name` is the name you want to name Docker.
 
    ```bash
-   docker build -t your-temp-docker-name -f dockerfile_raspberrypi .
+   docker build -t your-temp-docker-name -f dockerfile .
    ```
 
 3. Run the Docker image you just built with the first command. `f2a9a8d4ef8e` is the container id of the Docker image. Your container id should be different. Then, run the `init.sh`, which generates Raspbian system root and installs necessary packages. Run `exit` to exit the container once `init.sh` is done.
@@ -32,4 +32,4 @@ This `dockerfile` folder is self-contained and it's the open source of Docker im
 
 If you want to include more packages for your build purpose, change the last line of `init.sh`, where Raspbian packages are installed. Right now, only `wiringpi` package is specifically installed. Build-essential packages are also installed, which is achieved by applying the debootstrap option `--variant buildd`.
 
-If you want to do a more deep customization, you can go through `dockerfile_raspberrypi`, `build.sh` and `init.sh`, and help yourself. :)
+If you want to do a more deep customization, you can go through `dockerfile`, `build.sh` and `init.sh`, and help yourself. :)
