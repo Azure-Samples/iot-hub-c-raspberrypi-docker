@@ -74,11 +74,10 @@ Go to [Docker website](https://www.docker.com/). Scroll down and find the `Get D
    ```
    ![scp.png](media/mac/scp.png)
 
-2. Use SSH to login in to the Pi device. Then add executable permission to the built app. Finally, run the app.
+2. Use SSH to login in to the Pi device and run the app.
 
    ```bash
    ssh <user name>@<device ip address>
-   chmod +x blink/blink
    ./blink/blink
    ```
 
