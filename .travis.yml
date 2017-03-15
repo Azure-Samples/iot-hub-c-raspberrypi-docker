@@ -1,0 +1,7 @@
+language: python
+
+install:
+  - pip install cpplint
+
+script:
+  - cpplint --linelength=120 --filter=-whitespace/braces,-whitespace/newline samples/*/main.c
